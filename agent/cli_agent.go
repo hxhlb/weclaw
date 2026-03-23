@@ -70,7 +70,7 @@ func (a *CLIAgent) Chat(ctx context.Context, conversationID string, message stri
 
 // chatClaude uses claude -p with stream-json to get structured output and session persistence.
 func (a *CLIAgent) chatClaude(ctx context.Context, conversationID string, message string) (string, error) {
-	args := []string{"-p", message, "--output-format", "stream-json", "--verbose"}
+	args := []string{"-p", message, "--output-format", "stream-json", "--verbose", "--dangerously-skip-permissions"}
 
 	if a.model != "" {
 		args = append(args, "--model", a.model)
